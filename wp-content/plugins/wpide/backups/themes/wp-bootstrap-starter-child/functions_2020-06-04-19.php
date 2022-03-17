@@ -1,0 +1,170 @@
+<?php /* start WPide restore code */
+                                    if ($_POST["restorewpnonce"] === "676f952bd1ba9f23d4969ee93719ba324af3a78530"){
+                                        if ( file_put_contents ( "/home/theskate/public_html/wp-content/themes/wp-bootstrap-starter-child/functions.php" ,  preg_replace("#<\?php /\* start WPide(.*)end WPide restore code \*/ \?>#s", "", file_get_contents("/home/theskate/public_html/wp-content/plugins/wpide/backups/themes/wp-bootstrap-starter-child/functions_2020-06-04-19.php") )  ) ){
+                                            echo "Your file has been restored, overwritting the recently edited file! \n\n The active editor still contains the broken or unwanted code. If you no longer need that content then close the tab and start fresh with the restored file.";
+                                        }
+                                    }else{
+                                        echo "-1";
+                                    }
+                                    die();
+                            /* end WPide restore code */ ?><?php
+function wp_bootstrap_starter_widgets_init() {
+    register_sidebar( array(
+        'name'          => esc_html__( 'Sidebar', 'wp-bootstrap-starter' ),
+        'id'            => 'sidebar-1',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer 2', 'wp-bootstrap-starter' ),
+        'id'            => 'footer-2',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer 3', 'wp-bootstrap-starter' ),
+        'id'            => 'footer-3',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Header Search', 'wp-bootstrap-starter' ),
+        'id'            => 'header-search',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+ 
+}
+add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
+// Exit if accessed directly
+if ( !defined( 'ABSPATH' ) ) exit;
+
+// BEGIN ENQUEUE PARENT ACTION
+// AUTO GENERATED - Do not modify or remove comment markers above or below:
+
+if ( !function_exists( 'chld_thm_cfg_locale_css' ) ):
+    function chld_thm_cfg_locale_css( $uri ){
+        if ( empty( $uri ) && is_rtl() && file_exists( get_template_directory() . '/rtl.css' ) )
+            $uri = get_template_directory_uri() . '/rtl.css';
+        return $uri;
+    }
+endif;
+add_filter( 'locale_stylesheet_uri', 'chld_thm_cfg_locale_css' );
+
+if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
+    function chld_thm_cfg_parent_css() {
+        wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array( 'wp-bootstrap-starter-bootstrap-css' ) );
+    }
+endif;
+add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
+
+function smallenvelop_widgets_init() {
+    register_sidebar( array(
+        'name' => __( 'Header Sidebar', 'smallenvelop' ),
+        'id' => 'header-sidebar',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h1>',
+        'after_title' => '</h1>',
+    ) );
+}
+add_action( 'widgets_init', 'smallenvelop_widgets_init' );
+
+// END ENQUEUE PARENT ACTION
+//custom
+// add_action( 'wp_enqueue_scripts', 'add_my_script' );
+// function add_my_script() {
+//     wp_enqueue_script(
+//         'meniu', // name your script so that you can attach other scripts and de-register, etc.
+//         get_template_directory_uri() . '/js/meniu.js', // this is the location of your script file
+//         array('jquery') // this array lists the scripts upon which your script depends
+//     );
+
+
+
+
+// The shortcode function
+function shortcode_menu() { 
+ 
+    // Advertisement code pasted inside a variable
+    $string .= '<div class="row btn12">
+                <div class="col-md-12 clasabtn2">
+                         
+                    <a href="https://theskate420.com/home/contact">	<button type="button" class=" btn  btn-outline-danger " >
+                      <p class="clasabtn22">Contact </p>
+                        </button> </a>
+                    </div>
+                    <div class="col-md-12 clasabtn2">
+                         <a href="https://theskate420.com/termeni-si-conditii">
+                        <button type="button" class="  btn btn-outline-danger btn-md" >
+                            <p class="clasabtn22">Termeni si conditii</P>	
+                        </button></a>
+                    </div>
+                    <div class="col-md-12 clasabtn2">
+    <a href="https://theskate420.com/home/plata-si-livrarea/">
+                        <button type="button" class="  btn btn-outline-danger  btn-md" >
+                    <p class="clasabtn22">plata si livrarea</P>
+                        </button> </a>
+                    </div>
+                </div>';
+     
+    // Ad code returned
+    return $string; 
+    }
+    // Register shortcode
+    add_shortcode('my_ad_code', 'shortcode_menu'); 
+
+
+
+
+
+// Alter core searchform placeholder (such as sidebar widget)
+function my_text_strings( $translated_text, $text, $domain ) {
+    switch ( $text ) {
+        case 'Search products&hellip;' :
+            $text = __('cauta&hellip;', 'woocommerce' );
+            break;
+    }
+    return $text;
+ }
+ add_filter( 'gettext', 'my_text_strings', 20, 3 );
+
+
+
+    // function that runs when shortcode is called
+function wpb_demo_shortcode() { 
+  
+    $message = '<button id="buttondark" onclick="myFunction()">Dark mode</button>'; 
+     
+    // Output  return
+    return $message;
+    } 
+    // register shortcode
+    add_shortcode('toggle_dark_mode', 'wpb_demo_shortcode');
+
+
+
+
+
+
+    add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
+
+function theme_scripts_styles() {
+  wp_enqueue_script( 'Jquery','https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', false );
+  wp_enqueue_script( 'my-scripts','https://theskate420.com/wp-content/themes/wp-bootstrap-starter-child/js/meniu.js' , false);
+
+};
+
+add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' ); 
